@@ -251,4 +251,9 @@ Blues采用android标准API编写，无依赖，足够轻量，轻量到只有�
 
 [原理分析](https://github.com/codyer/Blues/blob/master/%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90.md)
 
+感谢原作者
+
+https://www.jianshu.com/p/01b69d91a3a8
+
+https://github.com/android-notes/Cockroach
 
