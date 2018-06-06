@@ -28,13 +28,8 @@ import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 
-/**
- * Created by wanjian on 2017/2/14.
- */
 
-
-
-        Blues.install(new Blues.ExceptionHandler() {
+Blues.install(new Blues.ExceptionHandler() {
 
            // handlerException内部建议手动try{  你的异常处理逻辑  }catch(Throwable e){ } ，以防handlerException内部再次抛出异常，导致循环调用handlerException
 
