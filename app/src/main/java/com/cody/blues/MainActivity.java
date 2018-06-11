@@ -9,7 +9,6 @@ import android.view.View;
 
 /**
  * Created by cody.yi on 2018/6/6.
- *
  */
 public class MainActivity extends Activity {
 
@@ -27,6 +26,24 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Blues.uninstall();
+            }
+        });
+        findViewById(R.id.change2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LauncherUtil.changeTo(MainActivity.this, 0);
+            }
+        });
+        findViewById(R.id.change).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LauncherUtil.changeTo(MainActivity.this, 1);
+            }
+        });
+        findViewById(R.id.change3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LauncherUtil.changeTo(MainActivity.this, 2);
             }
         });
         findViewById(R.id.click).setOnClickListener(new View.OnClickListener() {
