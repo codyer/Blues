@@ -6,8 +6,8 @@ android {
         applicationId "com.cody.blues"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode 11
+        versionName "2.1"
         multiDexEnabled true
         ndk {
             // 设置支持的SO库架构

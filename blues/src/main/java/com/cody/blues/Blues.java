@@ -56,7 +56,7 @@ public final class Blues {
                     try {
                         Looper.loop();
                     } catch (Throwable e) {
-                        if (e instanceof QuitBluesException) {
+                        if (e instanceof BluesQuitException) {
                             return;
                         }
                         if (sExceptionHandler != null) {
@@ -92,7 +92,7 @@ public final class Blues {
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
             public void run() {
-                throw new QuitBluesException("Quit Blues .....");//主线程抛出异常，迫使 while (true) {}结束
+                throw new BluesQuitException("Quit Blues .....");//主线程抛出异常，迫使 while (true) {}结束
             }
         });
     }

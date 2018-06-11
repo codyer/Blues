@@ -7,8 +7,6 @@ import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.tencent.bugly.crashreport.CrashReport;
-
 /**
  * Created by cody.yi on 2018/6/6.
  * blues 默认处理类
@@ -21,13 +19,13 @@ final public class BluesHandler implements Blues.ExceptionHandler {
     BluesHandler(Context context) {
         mContext = context;
         // 确保blues初始化在 buglly 之后
-        CrashReport.initCrashReport(mContext.getApplicationContext(), "a234d4966d", true);
+        CrashUtil.init(mContext);
     }
 
     @Override
     public void handlerException(final Thread thread, final Throwable throwable) {
         if (mContext == null) {
-            CrashReport.postCatchedException(throwable);
+            CrashUtil.postCatchedException(throwable);
             return;
         }
         SharedPreferences settings = mContext.getSharedPreferences(BLUES_KEY, Context.MODE_PRIVATE);
@@ -43,7 +41,7 @@ final public class BluesHandler implements Blues.ExceptionHandler {
                 editor.putString(BLUES_KEY, stackTrace);
                 editor.apply();
                 showToast("Exception Happend\n" + thread + "\n" + throwable.toString());
-                CrashReport.postCatchedException(throwable);
+                CrashUtil.postCatchedException(mContext, throwable);
             }
         }
     }
@@ -55,7 +53,7 @@ final public class BluesHandler implements Blues.ExceptionHandler {
                 try {
                     Toast.makeText(mContext, msg, Toast.LENGTH_SHORT).show();
                 } catch (Throwable e) {
-                    CrashReport.postCatchedException(e);
+                    CrashUtil.postCatchedException(mContext, e);
                 }
             }
         });
