@@ -1,23 +1,41 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        release {
+            keyAlias 'key0'
+            keyPassword '123456'
+            storeFile file('keystore.jks')
+            storePassword '123456'
+            //多渠道打包
+            // 同时满足下面两个条件才需要此配置
+            // 1. Gradle版本 >= 2.14.1
+            // 2. Android Gradle Plugin 版本 >= 2.2.0
+            // 作用是只使用旧版签名，禁用V2版签名模式
+            //v2SigningEnabled false
+            v2SigningEnabled true
+        }
+    }
+
     compileSdkVersion 26
     defaultConfig {
-        applicationId "com.cody.blues"
+        applicationId "com.cody.demos"
         minSdkVersion 19
         targetSdkVersion 26
         versionCode 11
         versionName "2.1"
-        multiDexEnabled true
         ndk {
             // 设置支持的SO库架构
             abiFilters 'armeabi' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
         }
     }
+
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 }
@@ -25,7 +43,5 @@ android {
 dependencies {
     compile 'com.android.support:appcompat-v7:26.1.0'
     compile 'com.android.support:recyclerview-v7:26+'
-    //解决6.0以上运行安装找不到包的问题
-    compile 'com.android.support:multidex:1.0.1'
     compile project(':blues')
 }

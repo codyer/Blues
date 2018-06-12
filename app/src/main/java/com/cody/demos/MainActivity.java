@@ -1,4 +1,4 @@
-package com.cody.blues;
+package com.cody.demos;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.view.View;
+
+import com.cody.blues.Blues;
 
 /**
  * Created by cody.yi on 2018/6/6.
@@ -31,19 +33,22 @@ public class MainActivity extends Activity {
         findViewById(R.id.change2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LauncherUtil.changeTo(MainActivity.this, 0);
+                Constants.sActivity = 0;
+                LauncherUtil.switchIcon(MainActivity.this);
             }
         });
         findViewById(R.id.change).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LauncherUtil.changeTo(MainActivity.this, 1);
+                Constants.sActivity = 1;
+                LauncherUtil.switchIcon(MainActivity.this);
             }
         });
         findViewById(R.id.change3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LauncherUtil.changeTo(MainActivity.this, 2);
+                Constants.sActivity = 2;
+                LauncherUtil.switchIcon(MainActivity.this);
             }
         });
         findViewById(R.id.click).setOnClickListener(new View.OnClickListener() {

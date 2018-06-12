@@ -1,4 +1,4 @@
-package com.cody.blues;
+package com.cody.demos;
 
 import android.app.Activity;
 
