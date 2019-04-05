@@ -159,9 +159,9 @@ Blues.install(new Blues.ExceptionHandler() {
 
 ```java
 
-02-16 09:58:00.660 21199-21199/wj.com.fuck E/AndroidRuntime: --->BluesException:Thread[main,5,main]<---
+02-16 09:58:00.660 21199-21199/com.cody.blues E/AndroidRuntime: --->BluesException:Thread[main,5,main]<---
                                                              java.lang.RuntimeException: click exception...
-                                                                 at wj.com.fuck.MainActivity$3.onClick(MainActivity.java:53)
+                                                                 at com.cody.blues.MainActivity$3.onClick(MainActivity.java:53)
                                                                  at android.view.View.performClick(View.java:4909)
                                                                  at android.view.View$PerformClick.run(View.java:20390)
                                                                  at android.os.Handler.handleCallback(Handler.java:815)
@@ -176,9 +176,9 @@ Blues.install(new Blues.ExceptionHandler() {
                                                                  at java.lang.reflect.Method.invoke(Method.java:372)
                                                                  at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:1009)
                                                                  at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:804)
-02-16 09:58:12.401 21199-21199/wj.com.fuck E/AndroidRuntime: --->BluesException:Thread[main,5,main]<---
+02-16 09:58:12.401 21199-21199/com.cody.blues E/AndroidRuntime: --->BluesException:Thread[main,5,main]<---
                                                              java.lang.RuntimeException: handler exception...
-                                                                 at wj.com.fuck.MainActivity$4$1.run(MainActivity.java:63)
+                                                                 at com.cody.blues.MainActivity$4$1.run(MainActivity.java:63)
                                                                  at android.os.Handler.handleCallback(Handler.java:815)
                                                                  at android.os.Handler.dispatchMessage(Handler.java:104)
                                                                  at android.os.Looper.loop(Looper.java:194)
@@ -191,9 +191,9 @@ Blues.install(new Blues.ExceptionHandler() {
                                                                  at java.lang.reflect.Method.invoke(Method.java:372)
                                                                  at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:1009)
                                                                  at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:804)
-02-16 09:58:13.241 21199-21199/wj.com.fuck E/AndroidRuntime: --->BluesException:Thread[Thread-26326,5,main]<---
+02-16 09:58:13.241 21199-21199/com.cody.blues E/AndroidRuntime: --->BluesException:Thread[Thread-26326,5,main]<---
                                                              java.lang.RuntimeException: new thread exception...
-                                                                 at wj.com.fuck.MainActivity$5$1.run(MainActivity.java:76)
+                                                                 at com.cody.blues.MainActivity$5$1.run(MainActivity.java:76)
 
 
 ```
@@ -203,10 +203,10 @@ Blues.install(new Blues.ExceptionHandler() {
 
 ```java
 
-02-16 09:59:01.251 21199-21199/wj.com.fuck E/AndroidRuntime: FATAL EXCEPTION: main
-                                                             Process: wj.com.fuck, PID: 21199
+02-16 09:59:01.251 21199-21199/com.cody.blues E/AndroidRuntime: FATAL EXCEPTION: main
+                                                             Process: com.cody.blues, PID: 21199
                                                              java.lang.RuntimeException: click exception...
-                                                                 at wj.com.fuck.MainActivity$3.onClick(MainActivity.java:53)
+                                                                 at com.cody.blues.MainActivity$3.onClick(MainActivity.java:53)
                                                                  at android.view.View.performClick(View.java:4909)
                                                                  at android.view.View$PerformClick.run(View.java:20390)
                                                                  at android.os.Handler.handleCallback(Handler.java:815)
@@ -237,7 +237,7 @@ Blues.install(new Blues.ExceptionHandler() {
 
 
 * 最佳拍档`android.arch.lifecycle.LiveData`+`Blues`。当使用LiveData.postValue时，Observer会在一个单独的消息中执行，这时
-若Observer中发生了异常，就可以被cockroach捕获到，不会有其他影响。
+若Observer中发生了异常，就可以被Blues捕获到，不会有其他影响。
 
 虽然可以捕获到所有异常，但可能会导致一些莫名其妙的问题，比如view初始化时发生了异常，异常后面的代码得不到执行，虽然不
 会导致app crash但view内部已经出现了问题，运行时就会出现很奇葩的现象。再比如activity声明周期方法中抛出了异常，则生
